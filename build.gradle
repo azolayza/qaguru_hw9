@@ -3,6 +3,10 @@ plugins {
     id "io.qameta.allure" version "2.9.6"
 }
 
+apply plugin: 'java'
+sourceCompatibility = 11
+targetCompatibility = 11
+
 repositories {
     mavenCentral()
 }
@@ -46,3 +50,8 @@ tasks.withType(Test) {
         }
     }
 }
+    task properties_tests(type: Test) {
+        useJUnitPlatform {
+            includeTags "properties"
+        }
+    }
