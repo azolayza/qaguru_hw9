@@ -22,8 +22,8 @@ public class DemoQaFormTests extends TestBase {
         $("[class*='datepicker__day--010']").click();
         $("#subjectsInput").setValue("Arts").pressEnter();
         $("[for*='hobbies-checkbox-2']").click();
-        File file = new File("/Users/admin/Documents/study_projects/qaguru_hw9/src/test/resources/b2b.jpeg");
-        $("[class*='form-control-file']").uploadFile(file);
+        //File file = new File("/Users/admin/Documents/study_projects/qaguru_hw9/src/test/resources/b2b.jpeg");
+        //$("[class*='form-control-file']").uploadFile(file);
         $("#currentAddress").setValue("Tomsk, Lenina 56-2");
         $("#react-select-3-input").setValue("Haryana").pressEnter();
         $("#react-select-4-input").setValue("Karnal").pressEnter();
