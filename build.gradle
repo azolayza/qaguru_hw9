@@ -3,10 +3,6 @@ plugins {
     id "io.qameta.allure" version "2.9.6"
 }
 
-apply plugin: 'java'
-sourceCompatibility = 11
-targetCompatibility = 11
-
 repositories {
     mavenCentral()
 }
@@ -39,8 +35,12 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
-tasks.withType(Test) {
-    useJUnitPlatform()
+    tasks.withType(Test) {
+        useJUnitPlatform()
+        systemProperties(System.getProperties())
+
+    //systemProperty("browser", "safari")
+    //systemProperty("environment", System.getProperty("environment", "stage")) // preprod, prod, stage
 
     testLogging {
         lifecycle {
