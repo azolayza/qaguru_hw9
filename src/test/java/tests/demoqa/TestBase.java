@@ -2,6 +2,7 @@ package tests.demoqa;
 
 import com.codeborne.selenide.Configuration;
 import helpers.Attach;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
     @BeforeAll
+    @Step("Конфигурация параметров запуска тестов")
     static void setUp() {
         String login = System.getProperty("login");
         String password = System.getProperty("password");

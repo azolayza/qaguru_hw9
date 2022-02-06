@@ -37,7 +37,7 @@ dependencies {
 
     tasks.withType(Test) {
         useJUnitPlatform()
-        systemProperties(System.getProperties())
+        systemProperties(System.getProperties()) // извлечение параметров для запуска тестов через терминал или дженкинс
 
     //systemProperty("browser", "safari")
     //systemProperty("environment", System.getProperty("environment", "stage")) // preprod, prod, stage
