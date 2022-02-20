@@ -15,12 +15,11 @@ import static io.qameta.allure.Allure.step;
 @Tag("simple")
 public class DemoQaFormTests extends TestBase {
 
-    @Owner("AzovcevaE")
     @Feature("Registration")
-    @Story("Регистрация")
     @DisplayName("Регистрация Пользователя")
     @Test
-    void fillDataFormTest(){
+    @Tag("owner")
+    void fillRegistrationFormTest(){
         step("Открываем страницу регистрации", () -> {
             open("/automation-practice-form");
         });
@@ -47,8 +46,6 @@ public class DemoQaFormTests extends TestBase {
                     $("#subjectsInput").setValue("Arts").pressEnter();
                     $("[for*='hobbies-checkbox-2']").click();
                 });
-        //File file = new File("/Users/admin/Documents/study_projects/qaguru_hw9/src/test/resources/b2b.jpeg");
-        //$("[class*='form-control-file']").uploadFile(file);
         step("Заполняем адрес", () -> {
                     $("#currentAddress").setValue("Tomsk, Lenina 56-2");
                     $("#react-select-3-input").setValue("Haryana").pressEnter();
