@@ -13,7 +13,6 @@ import static io.qameta.allure.Allure.step;
 @Tag("owner")
 public class DemoQaFormTests extends TestBase {
 
-
     @Test
     @Owner("Elizaveta Azovtseva")
     @Feature("Forms")
@@ -24,7 +23,7 @@ public class DemoQaFormTests extends TestBase {
     @Link(value = "demoqa", url = "https://demoqa.com/")
     void fillRegistrationFormTest(){
         step("Открываем страницу регистрации", () -> {
-            open("/automation-practice-form");
+            open("https://demoqa.com/automation-practice-form");
         });
         step("Заполняем имя и фамилию", () -> {
                     $("#firstName").setValue("Lizaveta");

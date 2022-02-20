@@ -15,15 +15,19 @@ public class TestBase {
     @BeforeAll
     @Step("Конфигурация параметров запуска тестов")
     static void setUp() {
-        String remoteUrl = System.getProperty("remoteUrl"); //Получаем значение из параметров Jenkins
+
         String login = Credentials.config.login();
         String password = Credentials.config.password();
+        String url = System.getProperty("url");
+        String remoteUrl = "https://" + login + ":" + password + "@" + url;
 
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "91");
         Configuration.browserSize = System.getProperty("browserSize", "1024x768");
-        Configuration.remote = format("https://%s:%s@%s", login, password, remoteUrl);
+        Configuration.remote = remoteUrl;
+        //Configuration.remote = format("https://%s:%s@%s", login, password, remoteUrl);
+        //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
