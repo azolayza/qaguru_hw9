@@ -51,7 +51,7 @@ dependencies {
         }
     }
 }
-    task properties_tests(type: Test) {
+task properties_tests(type: Test) {
         useJUnitPlatform {
             includeTags "properties"
         }

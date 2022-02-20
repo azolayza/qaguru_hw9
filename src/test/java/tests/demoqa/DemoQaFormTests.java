@@ -12,13 +12,12 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-@Tag("simple")
+@Tag("owner")
 public class DemoQaFormTests extends TestBase {
 
     @Feature("Registration")
     @DisplayName("Регистрация Пользователя")
     @Test
-    @Tag("owner")
     void fillRegistrationFormTest(){
         step("Открываем страницу регистрации", () -> {
             open("/automation-practice-form");

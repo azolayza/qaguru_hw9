@@ -10,27 +10,26 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static java.lang.String.format;
 
 public class TestBase {
     @BeforeAll
     @Step("Конфигурация параметров запуска тестов")
     static void setUp() {
         CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
-        //String login = System.getProperty("login");
-        //String password = System.getProperty("password");
         String login = config.login();
         String password = config.password();
-        String url = System.getProperty("url");
         String browser = System.getProperty("browser");
         String browserVersion = System.getProperty("version"); // versions: chrome - 90, 91 opera - 76, 77 firefox - 88, 89
         String browserSize = System.getProperty("browserSize");
-        String remoteUrl = "https://" + login + ":" + password + "@" + url;
+        String remoteUrl = System.getProperty("remoteUrl"); //Получаем значение из параметров Jenkins
+
 
         Configuration.browser = browser;
         Configuration.browserVersion = browserVersion;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = browserSize;
-        Configuration.remote = remoteUrl;
+        Configuration.remote = format("https://%s:%s@%s", login, password, remoteUrl);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
