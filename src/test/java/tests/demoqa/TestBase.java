@@ -1,9 +1,11 @@
 package tests.demoqa;
 
 import com.codeborne.selenide.Configuration;
+import config.Credentials;
 import config.CredentialsConfig;
 import helpers.Attach;
 import io.qameta.allure.Step;
+import org.aeonbits.owner.Config;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,9 +18,8 @@ public class TestBase {
     @BeforeAll
     @Step("Конфигурация параметров запуска тестов")
     static void setUp() {
-        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
-        String login = config.login();
-        String password = config.password();
+        String login = Credentials.config.login();
+        String password = Credentials.config.password();
         String browser = System.getProperty("browser");
         String browserVersion = System.getProperty("version"); // versions: chrome - 90, 91 opera - 76, 77 firefox - 88, 89
         String browserSize = System.getProperty("browserSize");
