@@ -23,7 +23,7 @@ public class DemoQaFormTests extends TestBase {
     @Link(value = "demoqa", url = "https://demoqa.com/")
     void fillRegistrationFormTest(){
         step("Открываем страницу регистрации", () -> {
-            open("https://demoqa.com/automation-practice-form");
+            open("/automation-practice-form");
         });
         step("Заполняем имя и фамилию", () -> {
                     $("#firstName").setValue("Lizaveta");
